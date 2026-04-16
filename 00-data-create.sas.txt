@@ -1,0 +1,32 @@
+
+********************************************************************************* ;
+** 00-data-create.sas                                                             ;
+********************************************************************************* ;
+** Demonstration data for vectors and complex numbers for SAS Innovate 2026       ;
+** Portable demo program - runs in WORK in any SAS session                        ;
+** Included:                                                                      ;
+**   WORK.COMPLEXDEMO - demonstration data for complex number section             ;
+**   WORK.VECTORDEMO  - demonstration data for vector analysis section            ;
+********************************************************************************* ;
+** Contact: Paul McDonald  https://www.linkedin.com/in/mcdonaldpaul/              ;
+********************************************************************************* ;
+
+data complexdemo ;
+   do x = -2 to 2 ;
+      output ;
+   end ;   
+run ;
+
+
+data vectordemo ;
+   input a1-a5 b1-b5 ;
+   c1 = . ;
+   c2 = . ;
+   c3 = . ;
+   c4 = . ;
+   c5 = . ;
+   datalines ;
+6 7 4 2 7   5 1 9 10 9
+;
+run ;
+

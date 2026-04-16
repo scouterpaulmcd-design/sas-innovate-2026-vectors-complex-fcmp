@@ -1,0 +1,34 @@
+
+********************************************************************************* ;
+** 02-demo.sas                                                                    ;
+********************************************************************************* ;
+** Main demonstration program of vectors and complex numbers at SAS Innovate 2026 ;
+** Portable demo program - runs in WORK in any SAS session                        ;
+********************************************************************************* ;
+** Contact: Paul McDonald  https://www.linkedin.com/in/mcdonaldpaul/              ;
+********************************************************************************* ;
+
+data _null_ ;
+   set complexdemo ;
+   array  C (2) a b ;
+   call sqrtneg (x, C) ;
+   complex = complex2char(C) ;
+   put complex= ;
+run ;   
+   
+data _null_ ;
+   set vectordemo ;
+
+   array a (5) a1-a5 ;
+   array b (5) b1-b5 ;
+   array c (5) c1-c5 ;
+
+   magnitude_a = vectormag(a) ;
+   call vectorsum(a, b, c) ;
+   dot_product_a_b = dotprod(a, b) ;
+   
+   put magnitude_a= ;
+   put c1= c2= c3= c4= c5= ;
+   put dot_product_a_b= ;
+run ;
+

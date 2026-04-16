@@ -1,0 +1,75 @@
+
+********************************************************************************* ;
+** 01-fcmp-build.sas                                                              ;
+********************************************************************************* ;
+** Stripped-Down FCMP Functions and Call Routines for SAS Innovate 2026           ;
+** Portable demo program - runs in WORK in any SAS session                        ;
+** Included:                                                                      ;
+**   SQRTNEG      - square root of a real number returning a complex number       ;
+**   COMPLEX2CHAR - returns a given complex number array in human-readable format ;
+**   VECTORMAG    - vector magnitude                                              ;
+**   VECTORSUM    - vector addition                                               ;
+**   DOTPROD      - dot product                                                   ;
+********************************************************************************* ;
+** Contact: Paul McDonald  https://www.linkedin.com/in/mcdonaldpaul/              ;
+********************************************************************************* ;
+
+options cmplib=(work.funcs) ;
+
+proc fcmp outlib=work.funcs.math ;
+  subroutine sqrtneg (real, complex[*]) ;
+      outargs complex ;
+      if real = . then do ;
+         complex [1] = . ;
+         complex [2] = . ;
+      end ;
+      else if real < 0 then do ;
+         complex [1] = 0 ;
+         complex [2] = sqrt(abs(real)) ;
+      end ;
+      else do ;
+         complex [1] = sqrt(real) ;
+         complex [2] = 0 ;
+      end ;
+   endsub ;
+   
+   function complex2char(complex[2]) $32 ;
+      return(strip(put(complex[1], best.))||
+             ' + '||
+             strip(put(complex[2], best.))||
+             'i') ;
+   endsub ;
+   
+   function vectormag(vector[*]) ;
+      radicand = 0 ;
+      do i = 1 to dim(vector) ;
+         radicand + vector[i]**2 ;
+      end ;
+      return (sqrt(radicand)) ;
+   endsub ;
+
+   subroutine vectorsum(augend[*], addend[*], sum[*]) ;
+      outargs sum ;
+
+      if dim(augend)=dim(addend) and dim(addend)=dim(sum) then do i = 1 to dim(sum) ;
+         sum[i] = augend[i] + addend[i] ;
+      end ;
+      else do i = 1 to dim(sum) ;
+         sum[i] = . ;
+      end ;
+   endsub ;
+
+   function dotprod(vector1[*], vector2[*]) ;
+      if dim(vector1) ne dim(vector2) then
+         return (.) ;
+
+      total = 0 ;
+      do i = 1 to dim(vector1) ;
+         total + vector1[i] * vector2[i] ;
+      end ;
+
+      return (total) ;
+   endsub ;
+run ;
+
+
