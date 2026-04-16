@@ -41,6 +41,12 @@ If your output matches these, everything is working correctly.
 
 ---
 
+## More 
+
+Visit my Google drive "start here" document for more information:  https://tinyurl.com/4sr59y88 
+
+---
+
 ## Contact
 
 Paul McDonald  
