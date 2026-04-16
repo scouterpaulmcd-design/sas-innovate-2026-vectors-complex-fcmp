@@ -43,7 +43,9 @@ If your output matches these, everything is working correctly.
 
 ## More 
 
-Visit my Google drive "start here" document for more information:  https://tinyurl.com/4sr59y88 
+ - Visit my Google drive "start here" document for more information:  https://tinyurl.com/4sr59y88
+ - View the fcmp-library for source code on many other functions and call routines that provide support for vectors and complex numbers
+ - See the documenation for the full library here:  https://drive.google.com/file/d/1UHAoea2WBNRJKHd7f3uAk2mAcsilaY68/view?usp=drive_link
 
 ---
 
