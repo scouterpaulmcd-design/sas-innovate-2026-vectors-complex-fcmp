@@ -13,6 +13,17 @@ Run the programs in this order:
 2. 01-fcmp-build.sas  
 3. 02-demo.sas  
 
+### Expected Results
+
+The demo will produce:
+
+- Vector magnitude calculation
+- Vector addition results
+- Dot product result
+- Complex number output from SQRTNEG
+
+If your output matches these, everything is working correctly.
+
 ---
 
 ## What this demonstrates
@@ -25,12 +36,12 @@ Run the programs in this order:
 
 ## Requirements
 
-- Base SAS (no SAS/IML required)  
-- Tested using SAS Online for Academics  
+- Base SAS (no SAS/IML required)
+- Tested using SAS Online for Academics
 
 ---
 
 ## Contact
 
 Paul McDonald  
-https://www.linkedin.com/in/mcdonaldpaul/
+Connect with me on LinkedIn - https://www.linkedin.com/in/mcdonaldpaul/
